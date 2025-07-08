@@ -15,6 +15,6 @@ RUN echo "ServerName localhost" >> /usr/local/apache2/conf/httpd.conf && \
     ln -s /usr/local/apache2/conf/sites-available/sitio.conf /usr/local/apache2/conf/sites-enabled/ && \
     rm -f /usr/local/apache2/conf/sites-enabled/000-default.conf
 
-EXPOSE 4322
+EXPOSE 4323
 
 CMD ["httpd", "-D", "FOREGROUND"]
