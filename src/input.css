@@ -1,12 +1,13 @@
 @import "tailwindcss";
 @theme {
-  --color-primary-green: #46D177;
+  --color-primary-green: #00D177;
   --color-primary-purple: #4E079D;
   --color-primary-blue: #2970CF;
   --color-primary-black: #020202;
   --color-secondary-green-extradark: #00210F;
-  --color-secondary-green-dark: #134B1F;
+  --color-secondary-green-dark: #043112;
   --color-secondary-green: #0a3516;
+  --color-secondary-green-mid: #16A05B;
   --color-secondary-green-light: #D2F6EC;
   --color-secondary-purple-dark: #27025B;
   --color-secondary-purple-light: #F1DDFF;
@@ -84,49 +85,43 @@ html {
     @apply border border-primary-green text-primary-green hover:bg-primary-green/10;
   }
   .btn-xl {
-    @apply xl:text-2xl;
+    @apply xl:text-3xl px-10 py-5 rounded-full;
   }
   .pill{
     @apply inline-flex items-center px-5 py-2 rounded-full text-sm text-pretty bg-secondary-green-light text-secondary-green-extradark font-medium;
   }
   .header {
-    @apply bg-secondary-green-extradark 2xl:bg-none 2xl:absolute top-0 left-0 w-full px-2 2xl:px-0;
+    @apply bg-secondary-green-mid 2xl:bg-none 2xl:absolute top-0 left-0 w-full px-2 2xl:px-0;
     nav{
-      @apply flex justify-center lg:justify-start 2xl:max-w-4/5 lg:max-w-11/12 mx-auto pt-2 2xl:pt-0 2xl:mt-10;
+      @apply flex justify-center lg:justify-start 2xl:max-w-4/5 lg:max-w-11/12 mx-auto pt-2 2xl:pt-0 2xl:mt-20;
     }
     img {
-      @apply h-5;
+      @apply h-7;
     }
   }
   /* Hero */
   .hero {
-    @apply pt-8 lg:pt-0 bg-gradient-to-b from-secondary-green-extradark to-secondary-green-dark from-70% text-white min-h-dvh flex items-center justify-center pb-5 xl:pb-0;
+    @apply bg-gradient-to-b from-secondary-green-mid to-secondary-green-dark from-20% text-white h-dvh flex flex-col;
+  }
+  .hero-logo {
+    @apply w-full px-5 lg:px-0 lg:w-full lg:max-w-11/12 2xl:max-w-4/5 h-2/12 flex items-center justify-center lg:justify-start mx-auto;
+    img {
+      @apply h-7;
+    }
   }
   .hero-container {
-    @apply md:mt-5 2xl:mt-0 lg:w-full lg:max-w-11/12 2xl:max-w-4/5 mx-auto grid xl:grid-cols-2 xl:gap-x-10 gap-y-4;
+    @apply h-10/12 lg:w-full lg:max-w-11/12 2xl:max-w-4/5 mx-auto grid xl:grid-cols-2 xl:gap-x-10 gap-y-4 items-center;
   }
   .hero-text {
     @apply xl:flex flex-col justify-center 2xl:gap-y-12 text-left h-full;
     h2 {
-      @apply text-3xl md:text-4xl 2xl:text-5xl font-semibold leading-tight;
+      @apply text-3xl md:text-4xl 2xl:text-6xl font-semibold leading-tight text-balance;
     }
   }
-  .hero-numbers {
-    @apply grid grid-cols-2 my-5 md:my-7 2xl:my-0 md:grid-cols-3 gap-y-3 md:gap-y-6 gap-x-5;
-    > article:last-child {
-       @apply col-span-3;
-     }
-  }
-  /* .hero-number-empresas{
-    @apply flex items-end flex-col;
-  } */
-  .hero-number {
-    @apply w-full mt-2 md:mt-0;
-    h3 {
-      @apply text-3xl md:text-2xl xl:text-4xl font-bold;
-    }
-    span {
-      @apply text-sm xl:text-base text-pretty leading-tight;
+  .hero-copy {
+    @apply text-base md:text-lg lg:text-2xl leading-tight text-balance mt-4 mb-6;
+    a {
+      @apply text-primary-green hover:text-primary-green/75 transition-colors underline underline-offset-4;
     }
   }
   .hero-cta {
