@@ -1,0 +1,25 @@
+{
+  "name": "totalpass-lp-refiere-gym",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "postcss src/input.css -o public/styles.css",
+    "watch:css": "postcss src/input.css -o public/styles.css --watch",
+    "dev": "concurrently \"npm run watch:css\" \"live-server --port=4322 public\"",
+    "inline": "node inline-css.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.8",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^4.1.8"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "live-server": "^1.2.2",
+    "postcss-cli": "^11.0.1"
+  }
+}
