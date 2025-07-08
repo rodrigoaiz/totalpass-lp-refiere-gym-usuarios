@@ -104,13 +104,13 @@ html {
     @apply bg-gradient-to-b from-secondary-green-mid to-secondary-green-dark from-20% text-white h-dvh flex flex-col;
   }
   .hero-logo {
-    @apply w-full px-5 lg:px-0 lg:w-full lg:max-w-11/12 2xl:max-w-4/5 h-2/12 flex items-center justify-center lg:justify-start mx-auto;
+    @apply w-full px-5 lg:px-0 lg:w-full lg:max-w-11/12 2xl:max-w-4/5 h-1/12 flex items-end justify-center lg:justify-start mx-auto;
     img {
       @apply h-7;
     }
   }
   .hero-container {
-    @apply h-10/12 lg:w-full lg:max-w-11/12 2xl:max-w-4/5 mx-auto grid xl:grid-cols-2 xl:gap-x-10 gap-y-4 items-center;
+    @apply h-11/12 lg:w-full lg:max-w-11/12 2xl:max-w-4/5 mx-auto grid xl:grid-cols-2 xl:gap-x-10 gap-y-4 items-center;
   }
   .hero-text {
     @apply xl:flex flex-col justify-center 2xl:gap-y-12 text-left h-full;
