@@ -98,7 +98,6 @@ html {
       @apply h-5;
     }
   }
-}
   /* Hero */
   .hero {
     @apply pt-8 lg:pt-0 bg-gradient-to-b from-secondary-green-extradark to-secondary-green-dark from-70% text-white min-h-dvh flex items-center justify-center pb-5 xl:pb-0;
@@ -118,3 +117,232 @@ html {
        @apply col-span-3;
      }
   }
+  /* .hero-number-empresas{
+    @apply flex items-end flex-col;
+  } */
+  .hero-number {
+    @apply w-full mt-2 md:mt-0;
+    h3 {
+      @apply text-3xl md:text-2xl xl:text-4xl font-bold;
+    }
+    span {
+      @apply text-sm xl:text-base text-pretty leading-tight;
+    }
+  }
+  .hero-cta {
+    @apply flex flex-col md:flex-row my-5 md:my-0 md:pb-5 2xl:mb-0 gap-5;
+  }
+  .hero-form {
+    @apply bg-white text-gray-800 py-3 px-4 md:p-6 rounded-2xl shadow-lg xl:ml-10;
+    h3 {
+      @apply text-xl font-semibold mb-7;
+    }
+  }
+  .form-grid {
+      @apply md:grid grid-cols-2 gap-x-10;
+      input, textarea, select {
+         @apply w-full px-4 py-2 bg-gray-200 mt-1 mb-4 md:mb-6 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-green text-[0.75rem];
+       }
+       label {
+         @apply block text-base md:text-sm font-medium text-gray-700;
+       }
+       button {
+        @apply my-2
+       }
+       .form-button{
+        @apply flex items-center justify-center xl:items-end;
+       }
+    }
+
+  /* Partners */
+  .partners {
+    @apply pt-2 md:pt-10;
+  }
+  .partners-logos{
+    @apply grid grid-cols-2 gap-y-3 sm:gap-y-3 xl:gap-y-10 sm:grid-cols-6 text-center max-w-7xl mx-auto items-center;
+    div{
+      @apply flex w-full items-center justify-center h-16 overflow-hidden
+    }
+    img {
+     @apply brightness-150 w-9/12  md:object-cover;
+    }
+    .logos-chaparros{
+      @apply max-h-10;
+    }
+  }
+  .partners-header {
+    @apply max-w-7xl mx-auto mt-5 mb-6 md:my-10;
+  }
+  .partners-info {
+    @apply grid grid-cols-3 gap-4 sm:gap-8 max-w-7xl mx-auto;
+    h3{
+      @apply text-2xl font-semibold mb-6 text-pretty;
+    }
+  }
+  .partners-fix {
+    @apply grid grid-cols-3 md:hidden my-10;
+    h3{
+      @apply text-2xl font-semibold mb-6 text-pretty;
+    }
+  }
+  .partners-content{
+    @apply col-span-3 md:col-span-2
+  }
+  .partners-phone-img {
+    @apply md:max-w-5/6 lg:max-w-3/4;
+  }
+  .partners-bento {
+    @apply md:grid md:grid-cols-3 gap-3;
+
+  }
+  .partners-bento-item {
+    @apply p-4 bg-gray-100 rounded-2xl mt-2 md:mt-0;
+    h4 {
+      @apply text-lg font-semibold my-2;
+    }
+    p {
+      @apply text-sm font-light leading-tight mb-4;
+    }
+  }
+  .partners-footer {
+    @apply max-w-7xl mx-auto mt-10 md:grid grid-cols-3 pb-10 md:pt-10;
+    :first-child {
+      @apply md:col-span-2 flex items-center;
+    }
+    p {
+      @apply mb-10 text-3xl leading-tight font-semibold text-pretty
+    }
+    :last-child {
+      @apply mt-2 md:mt-0 flex items-center justify-end md:justify-center;
+      button {
+        @apply md:text-xl;
+      }
+    }
+  }
+  /* What is it?! */
+
+  .what-is {
+    @apply bg-secondary-green-extradark text-white pt-14 md:pt-10 pb-10 xl:pb-32;
+  }
+  .what-is-header {
+    @apply max-w-7xl mx-auto;
+    h2 {
+      @apply text-3xl font-semibold;
+    }
+  }
+  .what-is-video {
+    @apply max-w-7xl mx-auto my-8 mt-6;
+    iframe {
+      @apply w-full xl:w-4/5 mx-auto aspect-video rounded-2xl;
+    }
+  }
+  .what-is-content{
+    @apply max-w-7xl mx-auto;
+
+  }
+  .what-is-contact{
+    @apply xl:mt-18;
+  }
+  .what-is-lead {
+    @apply text-3xl md:text-4xl md:max-w-2/3 leading-tight font-semibold text-pretty;
+    span {
+      @apply text-primary-green;
+    }
+  }
+  .what-is-steps {
+    @apply grid grid-cols-1 sm:grid-cols-3 gap-6 my-10;
+  }
+  .what-is-step {
+    @apply p-4 bg-secondary-green rounded-2xl;
+  }
+  .what-is-number {
+    @apply text-lg font-semibold mb-2 bg-secondary-green-light rounded-full size-8 flex items-center justify-center text-secondary-green-extradark
+  }
+  .what-is-contact{
+    @apply md:grid grid-cols-2 max-w-7xl mx-auto;
+  }
+
+  /* Success */
+  .success {
+    @apply max-w-7xl mx-auto mt-10;
+    h3 {
+      @apply my-10 text-3xl md:max-w-1/2 leading-tight font-semibold text-pretty;
+    }
+  }
+  .success-cards {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-6;
+    img {
+      @apply min-w-32 brightness-0;
+    }
+    p {
+      @apply text-base font-light leading-relaxed;
+    }
+  }
+  .success-allies{
+    @apply max-w-7xl mx-auto mt-10;
+  }
+  .success-allies-logos{
+    @apply bg-gray-200 py-5 px-5 md:py-10 md:px-5 rounded-3xl flex items-center ;
+    div {
+      @apply grid grid-cols-4 gap-x-6 md:gap-x-12 gap-y-5 w-full text-center;
+      article {
+        @apply flex items-center justify-center;
+      }
+    }
+    img {
+      @apply max-h-14 brightness-0;
+    }
+  }
+  /* Join us */
+  .join-us {
+    @apply max-w-7xl mx-auto my-20 flex flex-col md:flex-row flex-wrap justify-between items-end;
+    h3 {
+      @apply mb-10 text-3xl md:max-w-1/2 leading-tight font-semibold text-pretty;
+    }
+    button {
+      @apply md:text-xl;
+    }
+  }
+
+  /* Footer */
+  .footer {
+    @apply bg-black text-white py-10;
+
+    a {
+      @apply text-white hover:text-primary-green transition-colors;
+    }
+  }
+  .footer-logo {
+    @apply w-full md:w-2/6 flex flex-col items-center gap-6;
+    img {
+      @apply h-6 mr-2;
+    }
+  }
+  .footer-content {
+      @apply md:max-w-7xl px-5 mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-10;
+    }
+  .footer-socials {
+    @apply flex gap-4 mt-4;
+    img {
+      @apply size-8 invert;
+    }
+  }
+  .footer-links {
+    @apply w-4/6 flex flex-col gap-2 ;
+    ul {
+      @apply w-full flex flex-col justify-between lg:flex-row gap-5;
+    }
+  }
+  .footer-links-bottom {
+    @apply w-full flex flex-col gap-2;
+  }
+  .footer-app {
+    @apply max-w-7xl mx-auto flex justify-end flex-col lg:flex-row items-center gap-6 my-6;
+    img {
+      @apply h-8 inline-block;
+    }
+  }
+  .footer-copyright {
+    @apply max-w-7xl px-5 mx-auto flex flex-col justify-end lg:flex-row gap-5 mt-5;
+  }
+}
