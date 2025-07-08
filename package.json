@@ -5,7 +5,7 @@
   "scripts": {
     "build": "postcss src/input.css -o public/styles.css",
     "watch:css": "postcss src/input.css -o public/styles.css --watch",
-    "dev": "concurrently \"npm run watch:css\" \"live-server --port=4322 public\"",
+    "dev": "concurrently \"npm run watch:css\" \"live-server --port=4323 public\"",
     "inline": "node inline-css.js"
   },
   "keywords": [],
