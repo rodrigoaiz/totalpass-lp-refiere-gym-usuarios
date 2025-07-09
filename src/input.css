@@ -73,19 +73,19 @@ html {
     @apply text-primary-black font-poppins;
   }
   button {
-    @apply block px-5 py-2 lg:px-6 lg:py-3 rounded-4xl text-xl font-normal transition-all hover:scale-105 cursor-pointer;
+    @apply block font-normal transition-all hover:scale-105 cursor-pointer;
   }
   section{
     @apply px-5 xl:px-0;
   }
   .btn-primary {
-    @apply bg-primary-green hover:bg-primary-green/75 text-secondary-green-extradark;
+    @apply bg-primary-green hover:bg-primary-green/75 text-secondary-green-extradark px-6 py-3 rounded-full;
   }
   .btn-secondary {
     @apply border border-primary-green text-primary-green hover:bg-primary-green/10;
   }
   .btn-xl {
-    @apply xl:text-3xl px-10 py-5 rounded-full;
+    @apply text-lg xl:text-xl px-10 py-5 rounded-full;
   }
   .pill{
     @apply inline-flex items-center px-5 py-2 rounded-full text-sm text-pretty bg-secondary-green-light text-secondary-green-extradark font-medium;
@@ -101,34 +101,34 @@ html {
   }
   /* Hero */
   .hero {
-    @apply bg-gradient-to-b from-secondary-green-mid to-secondary-green-dark from-20% text-white h-dvh flex flex-col;
+    @apply bg-secondary-green-dark xl:bg-gradient-to-b from-secondary-green-mid to-secondary-green-dark md:from-20% text-white xl:h-dvh flex flex-col;
   }
   .hero-logo {
-    @apply w-full px-5 lg:px-0 lg:w-full lg:max-w-11/12 2xl:max-w-4/5 h-1/12 flex items-end justify-center lg:justify-start mx-auto;
+    @apply w-full absolute xl:relative top-5 left-0 px-5 lg:px-0 py-5 lg:max-w-11/12 2xl:max-w-4/5 h-1/12 flex items-end justify-center xl:justify-start mx-auto;
     img {
-      @apply h-7;
+      @apply h-7 lg:h-8;
     }
   }
   .hero-container {
-    @apply h-11/12 lg:w-full lg:max-w-11/12 2xl:max-w-4/5 mx-auto grid xl:grid-cols-2 xl:gap-x-10 gap-y-4 items-center;
+    @apply h-11/12 w-full lg:max-w-11/12 2xl:max-w-4/5 mx-auto grid xl:grid-cols-2 xl:gap-x-10 gap-y-4 items-center;
   }
   .hero-text {
-    @apply xl:flex flex-col justify-center 2xl:gap-y-12 text-left h-full;
+    @apply flex flex-col justify-end gap-y-3 2xl:gap-y-6 text-left h-dvh xl:h-auto;
     h2 {
-      @apply text-3xl md:text-4xl 2xl:text-6xl font-semibold leading-tight text-balance;
+      @apply text-4xl 2xl:text-5xl font-semibold leading-tight text-balance;
     }
   }
   .hero-copy {
-    @apply text-base md:text-lg lg:text-2xl leading-tight text-balance mt-4 mb-6;
+    @apply text-base md:text-lg lg:text-2xl leading-tight text-pretty xl:text-balance mt-4 mb-6;
     a {
       @apply text-primary-green hover:text-primary-green/75 transition-colors underline underline-offset-4;
     }
   }
   .hero-cta {
-    @apply flex flex-col md:flex-row my-5 md:my-0 md:pb-5 2xl:mb-0 gap-5;
+    @apply flex items-center justify-center md:justify-start;
   }
   .hero-form {
-    @apply bg-white text-gray-800 py-3 px-4 md:p-6 rounded-2xl shadow-lg xl:ml-10;
+    @apply bg-white text-gray-800 py-3 px-4 md:p-6 rounded-2xl shadow-lg xl:ml-10 mb-10 xl:mb-0;
     h3 {
       @apply text-xl font-semibold mb-7;
     }
@@ -151,10 +151,10 @@ html {
 
   /* Partners */
   .partners {
-    @apply pt-2 md:pt-10;
+    @apply my-10 md:pt-10;
   }
   .partners-logos{
-    @apply grid grid-cols-2 gap-y-3 sm:gap-y-3 xl:gap-y-10 sm:grid-cols-6 text-center max-w-7xl mx-auto items-center;
+    @apply py-10 grid grid-cols-2 gap-y-3 sm:gap-y-3 xl:gap-y-10 sm:grid-cols-6 text-center max-w-7xl mx-auto items-center;
     div{
       @apply flex w-full items-center justify-center h-16 overflow-hidden
     }
@@ -165,59 +165,32 @@ html {
       @apply max-h-10;
     }
   }
-  .partners-header {
-    @apply max-w-7xl mx-auto mt-5 mb-6 md:my-10;
-  }
   .partners-info {
-    @apply grid grid-cols-3 gap-4 sm:gap-8 max-w-7xl mx-auto;
-    h3{
-      @apply text-2xl font-semibold mb-6 text-pretty;
+    @apply grid grid-cols-3 gap-2 sm:gap-8 max-w-7xl mx-auto;
+    h2{
+      @apply text-lg text-pretty;
     }
-  }
-  .partners-fix {
-    @apply grid grid-cols-3 md:hidden my-10;
     h3{
-      @apply text-2xl font-semibold mb-6 text-pretty;
+      @apply text-3xl font-semibold xl:text-balance mb-2;
     }
   }
   .partners-content{
-    @apply col-span-3 md:col-span-2
+    @apply col-span-3 md:col-span-2 flex flex-col justify-center gap-y-10;
+    div {
+      @apply lg:max-w-5/6
+    }
+  }
+  .partners-image {
+    @apply col-span-3 md:col-span-1 my-5 md:my-0 flex items-center justify-center;
   }
   .partners-phone-img {
-    @apply md:max-w-5/6 lg:max-w-3/4;
+    @apply max-w-3/6 md:max-w-5/6 lg:max-w-3/4;
   }
-  .partners-bento {
-    @apply md:grid md:grid-cols-3 gap-3;
 
-  }
-  .partners-bento-item {
-    @apply p-4 bg-gray-100 rounded-2xl mt-2 md:mt-0;
-    h4 {
-      @apply text-lg font-semibold my-2;
-    }
-    p {
-      @apply text-sm font-light leading-tight mb-4;
-    }
-  }
-  .partners-footer {
-    @apply max-w-7xl mx-auto mt-10 md:grid grid-cols-3 pb-10 md:pt-10;
-    :first-child {
-      @apply md:col-span-2 flex items-center;
-    }
-    p {
-      @apply mb-10 text-3xl leading-tight font-semibold text-pretty
-    }
-    :last-child {
-      @apply mt-2 md:mt-0 flex items-center justify-end md:justify-center;
-      button {
-        @apply md:text-xl;
-      }
-    }
-  }
   /* What is it?! */
 
   .what-is {
-    @apply bg-secondary-green-extradark text-white pt-14 md:pt-10 pb-10 xl:pb-32;
+    @apply bg-secondary-green-extradark text-white py-12 md:py-22;
   }
   .what-is-header {
     @apply max-w-7xl mx-auto;
@@ -226,76 +199,9 @@ html {
     }
   }
   .what-is-video {
-    @apply max-w-7xl mx-auto my-8 mt-6;
+    @apply max-w-7xl mx-auto mt-16;
     iframe {
-      @apply w-full xl:w-4/5 mx-auto aspect-video rounded-2xl;
-    }
-  }
-  .what-is-content{
-    @apply max-w-7xl mx-auto;
-
-  }
-  .what-is-contact{
-    @apply xl:mt-18;
-  }
-  .what-is-lead {
-    @apply text-3xl md:text-4xl md:max-w-2/3 leading-tight font-semibold text-pretty;
-    span {
-      @apply text-primary-green;
-    }
-  }
-  .what-is-steps {
-    @apply grid grid-cols-1 sm:grid-cols-3 gap-6 my-10;
-  }
-  .what-is-step {
-    @apply p-4 bg-secondary-green rounded-2xl;
-  }
-  .what-is-number {
-    @apply text-lg font-semibold mb-2 bg-secondary-green-light rounded-full size-8 flex items-center justify-center text-secondary-green-extradark
-  }
-  .what-is-contact{
-    @apply md:grid grid-cols-2 max-w-7xl mx-auto;
-  }
-
-  /* Success */
-  .success {
-    @apply max-w-7xl mx-auto mt-10;
-    h3 {
-      @apply my-10 text-3xl md:max-w-1/2 leading-tight font-semibold text-pretty;
-    }
-  }
-  .success-cards {
-    @apply grid grid-cols-1 sm:grid-cols-2 gap-6;
-    img {
-      @apply min-w-32 brightness-0;
-    }
-    p {
-      @apply text-base font-light leading-relaxed;
-    }
-  }
-  .success-allies{
-    @apply max-w-7xl mx-auto mt-10;
-  }
-  .success-allies-logos{
-    @apply bg-gray-200 py-5 px-5 md:py-10 md:px-5 rounded-3xl flex items-center ;
-    div {
-      @apply grid grid-cols-4 gap-x-6 md:gap-x-12 gap-y-5 w-full text-center;
-      article {
-        @apply flex items-center justify-center;
-      }
-    }
-    img {
-      @apply max-h-14 brightness-0;
-    }
-  }
-  /* Join us */
-  .join-us {
-    @apply max-w-7xl mx-auto my-20 flex flex-col md:flex-row flex-wrap justify-between items-end;
-    h3 {
-      @apply mb-10 text-3xl md:max-w-1/2 leading-tight font-semibold text-pretty;
-    }
-    button {
-      @apply md:text-xl;
+      @apply w-full mx-auto aspect-video rounded-2xl;
     }
   }
 

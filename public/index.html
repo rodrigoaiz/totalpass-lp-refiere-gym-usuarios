@@ -16,17 +16,17 @@
           <div class="hero-text">
             <h2>Tu gym, estudio o spa favorito aún no está en TotalPass?</h2>
             <div class="hero-copy">
-              <p>Compártenos la información del espacio<br> que te gustaría integrar a nuestra red y<br> nosotros nos encargamos del resto. </p>
+              <p>Compártenos la información del espacio<br class="hidden 2xl:block"> que te gustaría integrar a nuestra red y<br class="hidden 2xl:block"> nosotros nos encargamos del resto. </p>
             </div>
             <div class="hero-cta">
-              <button onclick="window.location.href='#partners'" class="btn-primary btn-xl">Únelo ahora</button>
+              <button onclick="window.location.href='#hero-form'" class="btn-primary btn-xl">Únelo ahora</button>
             </div>
             <div class="hero-copy">
               <p>Si eres dueño de un gimnasio, estudio o spa, haz clic <a href="https://cloud.info.totalpass.com.mx/refiere-aliados">aquí</a>.</p>
             </div>
           </div>
-          <aside class="hero-form">
-            <h3>Si tienes un gimnasio, estudio o spa... ¡Únete ahora!</h3>
+          <aside class="hero-form" id="hero-form">
+            <h3>Completa el formulario</h3>
               <div class="form-container">
                 <form
                     action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
@@ -52,7 +52,7 @@
                                 id="direccion"
                                 name="direccion"
                                 type="text"
-                                placeholder="Ej. Calle Falsa 123"
+                                placeholder="Calle, número y colonia"
                                 required
                             >
                         </div>
@@ -100,27 +100,28 @@
                         <div>
                             <label for="tipo_inscripcion">Tipo de inscripción</label>
                             <select id="tipo_inscripcion" name="tipo_inscripcion" required>
-                                <option value="" disabled selected>Selecciona un tipo de inscripción</option>
-                                <option value="mensual">Membresía Mensual</option>
-                                <option value="clases_sueltas">Clases Sueltas</option>
-                                <option value="paquetes">Paquetes de Clases</option>
-                                <option value="anual">Membresía Anual</option>
+                                <option value="" disabled selected>Selecciona</option>
+                                <option value="tipo_inscripcion_mensual">Mensualidad</option>
+                                <option value="tipo_inscripcion_paquete">Paquete</option>
+                                <option value="tipo_inscripcion_ambos">Ambos</option>
                             </select>
                         </div>
                     </div>
 
                     <div class="form-grid">
                         <div>
-                            <label for="categoria">¿A qué categoría pertenece?</label>
-                            <select id="categoria" name="categoria" required>
-                                <option value="" disabled selected>Selecciona una categoría</option>
-                                <option value="gimnasio_tradicional">Gimnasio Tradicional</option>
-                                <option value="estudio_crossfit">Estudio de Crossfit</option>
-                                <option value="yoga_pilates">Yoga / Pilates</option>
-                                <option value="artes_marciales">Artes Marciales</option>
-                                <option value="danza">Danza</option>
-                                <option value="natacion">Natación</option>
-                                <option value="otros">Otros</option>
+                          <label for="categoria">¿A qué categoría pertenece?</label>
+                          <select id="categoria" name="categoria" required>
+                              <option value="" disabled selected>Selecciona</option>
+                              <option value="categoria_centro">Centro deportivo</option>
+                              <option value="categoria_gimnasio">Gimnasio</option>
+                              <option value="categoria_estudio">Estudio</option>
+                              <option value="categoria_wellness">Wellness</option>
+                              <option value="categoria_acuatico">Acuático</option>
+                              <option value="categoria_gimnasio_studio">Gimnasio + Studio</option>
+                              <option value="categoria_areas_publicas">Áreas públicas</option>
+                              <option value="categoria_canchas_deportivas">Canchas deportivas</option>
+                              <option value="categoria_otro">Otro</option>
                             </select>
                         </div>
                         <div>
@@ -177,19 +178,19 @@
           </aside>
         </div>
       </section>
-
       <section id="partners" class="partners">
-        <header id="partners-header" class="partners-header">
-          <h2>Este proceso puede tardar hasta 5 semanas en concluir. </h2>
-        </header>
         <article class="partners-info">
           <div class="partners-content">
-            <h3 class="hidden md:block">Mientras tanto, sigue disfrutando de las +4,500 opciones que tenemos para ti. Todas las encuentras en tu app.</h3>
+            <h2>Este proceso puede tardar hasta 5 semanas en concluir. </h2>
+            <div>
+              <h3>Mientras tanto, sigue disfrutando de las +4,500 opciones que tenemos para ti.</h3>
+              <h3>Todas las encuentras en tu app.</h3>
+            </div>
             <div class="hero-cta">
               <button class="btn-primary btn-xl" onclick="window.open('https://totalpass.com/mx/mapa/', '_blank')">Ver mapa de gyms</button>
             </div>
           </div>
-          <div class="partners-image hidden md:flex md:items-center md:justify-center">
+          <div class="partners-image">
             <img class="partners-phone-img" src="img/phone-1.webp" alt="Partners Image" />
           </div>
         </article>
