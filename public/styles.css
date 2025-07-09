@@ -8,11 +8,13 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-gray-200: oklch(92.8% 0.006 264.531);
+    --color-gray-600: oklch(44.6% 0.03 256.802);
     --color-gray-700: oklch(37.3% 0.034 259.733);
     --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
+    --container-3xl: 48rem;
     --container-7xl: 80rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
@@ -195,6 +197,9 @@
   }
 }
 @layer utilities {
+  .flex {
+    display: flex;
+  }
   .hidden {
     display: none;
   }
@@ -206,6 +211,9 @@
   }
   .transform {
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
+  }
+  .resize {
+    resize: both;
   }
   .\32 xl\:block {
     @media (width >= 96rem) {
@@ -849,6 +857,104 @@ html {
       flex-direction: row;
     }
   }
+  .modal-open {
+    overflow: hidden;
+  }
+  .modal-open::before {
+    content: '';
+    position: fixed;
+    top: calc(var(--spacing) * 0);
+    left: calc(var(--spacing) * 0);
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    background-color: color-mix(in srgb, #000 70%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 70%, transparent);
+    }
+    opacity: 0%;
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes scaleIn {
+    from {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 1;
+    }
+  }
+  @keyframes scaleOut {
+    from {
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0;
+    }
+  }
+  @media (width >= 48rem) {
+    .hero-form.modal-active {
+      position: fixed;
+      top: calc(1/2 * 100%);
+      left: calc(1/2 * 100%);
+      z-index: 1000;
+      margin: calc(var(--spacing) * 0);
+      max-height: 85vh;
+      width: 95%;
+      max-width: var(--container-3xl);
+      overflow-y: auto;
+      transform: translate(-50%, -50%) scale(1.1);
+      animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    }
+    .hero-form.modal-active .modal-close {
+      position: absolute;
+      top: calc(var(--spacing) * 4);
+      right: calc(var(--spacing) * 5);
+      z-index: 1001;
+      display: flex;
+      height: calc(var(--spacing) * 8);
+      width: calc(var(--spacing) * 8);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      border-radius: calc(infinity * 1px);
+      --tw-border-style: none;
+      border-style: none;
+      background-color: transparent;
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
+      color: var(--color-gray-600);
+      transition-property: all;
+      transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+      transition-duration: var(--tw-duration, var(--default-transition-duration));
+      --tw-duration: 200ms;
+      transition-duration: 200ms;
+    }
+    .hero-form.modal-active .modal-close:hover {
+      background-color: color-mix(in srgb, #000 10%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        background-color: color-mix(in oklab, var(--color-black) 10%, transparent);
+      }
+      color: var(--color-gray-800);
+    }
+  }
 }
 @property --tw-rotate-x {
   syntax: "*";
@@ -1058,6 +1164,10 @@ html {
   syntax: "*";
   inherits: false;
 }
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -1108,6 +1218,7 @@ html {
       --tw-drop-shadow-color: initial;
       --tw-drop-shadow-alpha: 100%;
       --tw-drop-shadow-size: initial;
+      --tw-duration: initial;
     }
   }
 }

@@ -246,4 +246,69 @@ html {
   .footer-copyright {
     @apply max-w-7xl px-5 mx-auto flex flex-col justify-end lg:flex-row gap-5 mt-5;
   }
+
+  /* Modal styles para el formulario hero */
+  .modal-open {
+    @apply overflow-hidden;
+  }
+
+  .modal-open::before {
+    content: '';
+    @apply fixed top-0 left-0 w-full h-full bg-black/70 z-[999] opacity-0;
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleOut {
+    from {
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 1;
+    }
+    to {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0;
+    }
+  }
+
+  @media (width >= 48rem) {
+    .hero-form.modal-active {
+      @apply fixed top-1/2 left-1/2 z-[1000] max-w-3xl w-[95%] max-h-[85vh] overflow-y-auto m-0;
+      transform: translate(-50%, -50%) scale(1.1);
+      animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-form.modal-active .modal-close {
+      @apply absolute top-4 right-5 bg-transparent border-none text-2xl text-gray-600 cursor-pointer z-[1001] w-8 h-8 flex items-center justify-center rounded-full transition-all duration-200;
+    }
+
+    .hero-form.modal-active .modal-close:hover {
+      @apply bg-black/10 text-gray-800;
+    }
+  }
 }
