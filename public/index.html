@@ -14,18 +14,18 @@
         </div>
         <div class="hero-container">
           <div class="hero-text">
-            <h2>Tu gym, estudio o spa favorito aún no está en TotalPass?</h2>
-            <div class="hero-copy">
+            <h2 class="hero-animate hero-title">Tu gym, estudio o spa favorito aún no está en TotalPass?</h2>
+            <div class="hero-copy hero-animate hero-subtitle">
               <p>Compártenos la información del espacio<br class="hidden 2xl:block"> que te gustaría integrar a nuestra red y<br class="hidden 2xl:block"> nosotros nos encargamos del resto. </p>
             </div>
-            <div class="hero-cta">
+            <div class="hero-cta hero-animate hero-button">
               <button onclick="handleHeroFormToggle()" class="btn-primary btn-xl">Únelo ahora</button>
             </div>
-            <div class="hero-copy">
+            <div class="hero-copy hero-animate hero-link">
               <p>Si eres dueño de un gimnasio, estudio o spa, haz clic <a href="https://cloud.info.totalpass.com.mx/refiere-aliados">aquí</a>.</p>
             </div>
           </div>
-          <aside class="hero-form" id="hero-form">
+          <aside class="hero-form hero-animate hero-form-slide" id="hero-form">
             <button class="modal-close" onclick="handleHeroFormToggle()" style="display: none;">×</button>
             <h3>Completa el formulario</h3>
               <div class="form-container">
@@ -181,7 +181,7 @@
       </section>
       <section id="partners" class="partners">
         <article class="partners-info">
-          <div class="partners-content">
+          <div class="partners-content scroll-animate animate-slide-left">
             <h2>Este proceso puede tardar hasta 5 semanas en concluir. </h2>
             <div>
               <h3>Mientras tanto, sigue disfrutando de las +4,500 opciones que tenemos para ti.</h3>
@@ -191,31 +191,31 @@
               <button class="btn-primary btn-xl" onclick="window.open('https://totalpass.com/mx/mapa/', '_blank')">Ver mapa de gyms</button>
             </div>
           </div>
-          <div class="partners-image">
+          <div class="partners-image scroll-animate animate-slide-right">
             <img class="partners-phone-img" src="img/phone-1.webp" alt="Partners Image" />
           </div>
         </article>
-        <div class="partners-logos">
-          <div><img src="img/logos/png/logo-sportcity.png" alt="Sportcity" /></div>
-          <div><img src="img/logos/png/logo-9round.png" alt="9round" /></div>
-          <div><img src="img/logos/png/logo-sportium.png" alt="Sportium" /></div>
-          <div><img src="img/logos/png/logo-station.png" alt="Station" /></div>
-          <div><img src="img/logos/png/logo-nelson.png" alt="Nelson Vargas" /></div>
-          <div><img src="img/logos/png/logo-move.png" alt="Move Family" /></div>
-          <div><img src="img/logos/png/logo-ymca.png" alt="YMCA" /></div>
-          <div><img src="img/logos/png/logo-fitpass.png" alt="Fitpass" /></div>
-          <div><img src="img/logos/png/logo-commando.png" alt="Commando" /></div>
-          <div><img src="img/logos/png/logo-1111.png" alt="11:11 Fitness" /></div>
-          <div><img src="img/logos/png/logo-smartfit.png" alt="SmartFit" /></div>
-          <div><img src="img/logos/png/logo-sportica.png" alt="Sportica" /></div>
+        <div class="partners-logos scroll-animate animate-fade-scale">
+          <div class="scroll-animate animate-stagger animate-delay-100"><img src="img/logos/png/logo-sportcity.png" alt="Sportcity" /></div>
+          <div class="scroll-animate animate-stagger animate-delay-200"><img src="img/logos/png/logo-9round.png" alt="9round" /></div>
+          <div class="scroll-animate animate-stagger animate-delay-300"><img src="img/logos/png/logo-sportium.png" alt="Sportium" /></div>
+          <div class="scroll-animate animate-stagger animate-delay-400"><img src="img/logos/png/logo-station.png" alt="Station" /></div>
+          <div class="scroll-animate animate-stagger animate-delay-500"><img src="img/logos/png/logo-nelson.png" alt="Nelson Vargas" /></div>
+          <div class="scroll-animate animate-stagger animate-delay-600"><img src="img/logos/png/logo-move.png" alt="Move Family" /></div>
+          <div class="scroll-animate animate-stagger animate-delay-100"><img src="img/logos/png/logo-ymca.png" alt="YMCA" /></div>
+          <div class="scroll-animate animate-stagger animate-delay-200"><img src="img/logos/png/logo-fitpass.png" alt="Fitpass" /></div>
+          <div class="scroll-animate animate-stagger animate-delay-300"><img src="img/logos/png/logo-commando.png" alt="Commando" /></div>
+          <div class="scroll-animate animate-stagger animate-delay-400"><img src="img/logos/png/logo-1111.png" alt="11:11 Fitness" /></div>
+          <div class="scroll-animate animate-stagger animate-delay-500"><img src="img/logos/png/logo-smartfit.png" alt="SmartFit" /></div>
+          <div class="scroll-animate animate-stagger animate-delay-600"><img src="img/logos/png/logo-sportica.png" alt="Sportica" /></div>
         </div>
       </section>
 
       <section class="what-is">
-        <header class="what-is-header">
+        <header class="what-is-header scroll-animate animate-slide-up">
           <h2 class="what-is-h2">¿Qué es TotalPass?</h2>
         </header>
-        <div class="what-is-video">
+        <div class="what-is-video scroll-animate animate-fade-scale">
           <iframe class="aspect-video" src="https://www.youtube.com/embed/QgCXt57wnXk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </section>
@@ -276,4 +276,5 @@
     </footer>
   </body>
   <script src="scripts/focus-form.js"></script>
+  <script src="scripts/scroll-animations.js"></script>
 </html>

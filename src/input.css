@@ -295,6 +295,157 @@ html {
     }
   }
 
+  /* Animaciones de scroll */
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes staggerFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Clases para elementos animados */
+  .scroll-animate {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .scroll-animate.animate-in {
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    animation-fill-mode: forwards;
+  }
+
+  .animate-slide-up.animate-in {
+    animation-name: slideInUp;
+  }
+
+  .animate-slide-left.animate-in {
+    animation-name: slideInLeft;
+  }
+
+  .animate-slide-right.animate-in {
+    animation-name: slideInRight;
+  }
+
+  .animate-fade-scale.animate-in {
+    animation-name: fadeInScale;
+  }
+
+  .animate-stagger.animate-in {
+    animation-name: staggerFadeIn;
+  }
+
+  /* Delays para efectos stagger */
+  .animate-delay-100 { animation-delay: 0.1s; }
+  .animate-delay-200 { animation-delay: 0.2s; }
+  .animate-delay-300 { animation-delay: 0.3s; }
+  .animate-delay-400 { animation-delay: 0.4s; }
+  .animate-delay-500 { animation-delay: 0.5s; }
+  .animate-delay-600 { animation-delay: 0.6s; }
+
+  /* Animaciones del Hero - se ejecutan al cargar */
+  @keyframes heroFadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes heroSlideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .hero-animate {
+    opacity: 0;
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    animation-fill-mode: forwards;
+  }
+
+  .hero-title {
+    animation-name: heroFadeInUp;
+    animation-delay: 0.2s;
+  }
+
+  .hero-subtitle {
+    animation-name: heroFadeInUp;
+    animation-delay: 0.4s;
+  }
+
+  .hero-button {
+    animation-name: heroFadeInUp;
+    animation-delay: 0.6s;
+  }
+
+  .hero-link {
+    animation-name: heroFadeInUp;
+    animation-delay: 0.8s;
+  }
+
+  .hero-form-slide {
+    animation-name: heroSlideInRight;
+    animation-delay: 0.5s;
+  }
+
   @media (width >= 48rem) {
     .hero-form.modal-active {
       @apply fixed top-1/2 left-1/2 z-[1000] max-w-3xl w-[95%] max-h-[85vh] overflow-y-auto m-0;
