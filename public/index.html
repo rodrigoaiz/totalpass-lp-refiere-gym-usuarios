@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TotalPass Refiere a tu Gym Usuarios</title>
     <link rel="stylesheet" href="styles.css" />
+    <script runat="server" src="scripts/form-post.js"></script>
   </head>
   <body>
     <main>
@@ -29,13 +30,7 @@
             <button class="modal-close" onclick="handleHeroFormToggle()" style="display: none;">×</button>
             <h3>Completa el formulario</h3>
               <div class="form-container">
-                <form
-                    action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
-                    method="POST"
-                >
-                    <input type="hidden" name="oid" value="TU_ORG_ID_SALESFORCE">
-                    <input type="hidden" name="retURL" value="https://">
-
+                <form method="POST">
                     <div class="form-grid">
                         <div>
                             <label for="nombre_espacio">Nombre del espacio</label>
