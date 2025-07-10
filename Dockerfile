@@ -3,8 +3,8 @@ FROM httpd:2.4
 # Copiar la configuración personalizada
 COPY sitio.conf /usr/local/apache2/conf/sites-available/sitio.conf
 
-# Copiar solo el contenido de la carpeta public como raíz del servidor
-COPY public/ /usr/local/apache2/htdocs/
+# Copiar solo el contenido de la carpeta dist como raíz del servidor
+COPY dist/ /usr/local/apache2/htdocs/
 
 # Crear el directorio sites-enabled si no existe
 RUN mkdir -p /usr/local/apache2/conf/sites-enabled

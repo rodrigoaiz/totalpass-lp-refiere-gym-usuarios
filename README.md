@@ -80,6 +80,9 @@ npm run build     # Generar build de producción
 ### Desarrollo con Docker
 
 ```bash
+# IMPORTANTE: Generar build antes de crear la imagen Docker
+npm run build
+
 # Construir la imagen Docker
 docker build -t totalpass-lp .
 
@@ -92,6 +95,18 @@ docker logs totalpass-lp-container
 # Parar y eliminar contenedor
 docker stop totalpass-lp-container
 docker rm totalpass-lp-container
+```
+
+### Docker con Multi-stage Build (Recomendado)
+
+Para un build más robusto que incluye el proceso de compilación dentro del contenedor:
+
+```bash
+# Usar el Dockerfile multi-stage (no requiere npm run build previo)
+docker build -f Dockerfile.multistage -t totalpass-lp .
+
+# Ejecutar el contenedor
+docker run -d -p 4323:4323 --name totalpass-lp-container totalpass-lp
 ```
 
 ## 🖥️ Uso
@@ -110,33 +125,54 @@ docker rm totalpass-lp-container
 
 ```
 totalpass-lp-refiere-gym-usuarios/
-├── public/                 # Archivos públicos
-│   ├── index.html         # Página principal
+├── public/                 # Archivos de desarrollo
+│   ├── index.html         # Página principal (desarrollo)
 │   ├── form.html          # Página de formulario
-│   ├── styles.css         # CSS compilado
+│   ├── styles.css         # CSS compilado (generado)
 │   └── img/               # Imágenes y logos
+├── dist/                  # Build de producción (generado)
+│   ├── index.html         # HTML optimizado con recursos inline
+│   └── img/               # Imágenes copiadas para producción
 ├── src/                   # Archivos fuente
 │   ├── input.css          # CSS fuente (Tailwind)
 │   └── input-back.css     # CSS adicional
-├── Dockerfile             # Configuración Docker
+├── inline.js              # Script de build y optimización
+├── Dockerfile             # Configuración Docker (usa dist/)
+├── Dockerfile.multistage  # Build multi-etapa (recomendado)
+├── deploy.sh              # Script de despliegue automático
 ├── sitio.conf            # Configuración Apache
 ├── package.json          # Dependencias Node.js
 ├── postcss.config.mjs    # Configuración PostCSS
 └── README.md             # Este archivo
 ```
 
+### Carpetas importantes:
+
+- **`src/`**: Código fuente (CSS con Tailwind)
+- **`public/`**: Archivos para desarrollo local
+- **`dist/`**: Build optimizado para producción (generado automáticamente)
+  - Contiene HTML con CSS/JS inline
+  - Incluye todas las imágenes necesarias
+  - Listo para deploy sin dependencias externas
+
 ## 🔄 Despliegue en servidor
 
 ### Script de despliegue automático
 
-Crea un archivo `deploy.sh` en tu servidor:
+El archivo `deploy.sh` incluye el proceso completo de build y despliegue:
 
 ```bash
 #!/bin/bash
 echo "🔄 Actualizando código..."
 git pull origin main
 
-echo "🛑 Parando container..."
+echo "� Instalando dependencias..."
+npm install
+
+echo "🏗️ Generando build de producción..."
+npm run build
+
+echo "�🛑 Parando container..."
 docker stop totalpass-lp-container 2>/dev/null || true
 
 echo "🗑️ Eliminando container..."
@@ -152,10 +188,36 @@ echo "✅ Despliegue completado!"
 docker ps | grep totalpass-lp
 ```
 
-Dar permisos y ejecutar:
+### Uso del script de deploy
+
 ```bash
+# Dar permisos de ejecución (solo la primera vez)
 chmod +x deploy.sh
+
+# Ejecutar despliegue
 ./deploy.sh
+```
+
+### Deploy alternativo con Multi-stage
+
+Si prefieres que el build se haga dentro del contenedor:
+
+```bash
+#!/bin/bash
+echo "🔄 Actualizando código..."
+git pull origin main
+
+echo "🛑 Parando container..."
+docker stop totalpass-lp-container 2>/dev/null || true
+docker rm totalpass-lp-container 2>/dev/null || true
+
+echo "🔨 Build con multi-stage..."
+docker build -f Dockerfile.multistage -t totalpass-lp .
+
+echo "🚀 Ejecutando nuevo container..."
+docker run -d -p 4323:4323 --name totalpass-lp-container totalpass-lp
+
+echo "✅ Despliegue completado!"
 ```
 
 ## 🔧 Configuración
@@ -175,9 +237,27 @@ El formulario está configurado para enviar datos a Salesforce. Para configurarl
 
 ## 📝 Notas importantes
 
-- **Cambios en código**: Después de hacer `git pull`, siempre reconstruye el contenedor Docker
-- **Firewall**: Asegúrate de que el puerto 4323 esté abierto en tu servidor
-- **CSS**: Los cambios en `src/input.css` requieren compilación con `npm run build`
+### Build y Deploy
+- **Build requerido**: Siempre ejecuta `npm run build` antes de crear la imagen Docker
+- **Carpeta dist**: El Dockerfile usa `dist/` que contiene la versión optimizada
+- **Assets incluidos**: El build copia automáticamente todas las imágenes necesarias
+- **Archivo único**: El HTML final incluye todo el CSS y JS inline (sin requests externos)
+
+### Desarrollo vs Producción
+- **Desarrollo**: Usa `npm run dev` con la carpeta `public/`
+- **Producción**: Usa `npm run build` para generar `dist/` optimizado
+- **Docker**: Siempre usa el contenido de `dist/` para máximo rendimiento
+
+### Servidor
+- **Firewall**: Asegúrate de que el puerto 4323 esté abierto
+- **Updates**: Después de `git pull`, ejecuta el script `deploy.sh` completo
+- **CSS**: Los cambios en `src/input.css` requieren `npm run build`
+
+### Archivos generados
+Los siguientes archivos/carpetas se generan automáticamente y están en `.gitignore`:
+- `dist/` - Build de producción
+- `public/styles.css` - CSS compilado para desarrollo
+- `public/index.inline.html` - Versión inline temporal
 
 ## 🤝 Contribución
 

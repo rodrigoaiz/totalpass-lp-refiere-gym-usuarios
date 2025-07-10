@@ -2,7 +2,13 @@
 echo "🔄 Actualizando código..."
 git pull origin main
 
-echo "🛑 Parando container..."
+echo "� Instalando dependencias..."
+npm install
+
+echo "🏗️ Generando build de producción..."
+npm run build
+
+echo "�🛑 Parando container..."
 docker stop totalpass-lp-container 2>/dev/null || true
 
 echo "🗑️ Eliminando container..."
