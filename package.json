@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "postcss src/input.css -o public/styles.css",
+    "build:css": "postcss src/input.css -o public/styles.css",
+    "build": "npm run build:css && node inline.js",
     "watch:css": "postcss src/input.css -o public/styles.css --watch",
     "dev": "concurrently \"npm run watch:css\" \"live-server --port=4323 public\"",
-    "inline": "node inline-css.js"
+    "clean": "rm -rf dist public/index.inline.html",
+    "inline": "node inline.js"
   },
   "keywords": [],
   "author": "",

@@ -1,5 +1,6 @@
 # build output
 dist/
+public/index.inline.html
 
 # generated types
 .astro/

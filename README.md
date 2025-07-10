@@ -42,8 +42,11 @@ npm install
 ### Desarrollo local
 
 ```bash
-# Compilar CSS una sola vez
+# Build completo para producción (compila CSS + genera dist/)
 npm run build
+
+# Solo compilar CSS una sola vez
+npm run build:css
 
 # Modo desarrollo con auto-compilación y servidor local
 npm run dev
@@ -51,8 +54,27 @@ npm run dev
 # Solo compilar CSS en modo watch (sin servidor)
 npm run watch:css
 
-# Generar CSS inline (para optimización)
+# Generar versión inline optimizada en dist/
 npm run inline
+
+# Limpiar archivos generados (dist/ y archivos temporales)
+npm run clean
+```
+
+### Build de producción
+
+El comando `npm run build` genera una versión optimizada para producción en la carpeta `dist/` que incluye:
+
+- **HTML optimizado**: Con CSS y JavaScript inline (sin requests externos)
+- **Assets copiados**: Todas las imágenes y recursos necesarios
+- **Tamaño optimizado**: Archivo único listo para deploy
+- **Sin dependencias**: No requiere servidor para CSS/JS externos
+
+```bash
+# Ejemplo de uso completo
+npm run clean     # Limpiar archivos previos
+npm run build     # Generar build de producción
+# El resultado estará en dist/index.html (listo para deploy)
 ```
 
 ### Desarrollo con Docker
