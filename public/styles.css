@@ -390,9 +390,9 @@ html {
     display: flex;
     flex-direction: column;
     background-color: var(--color-secondary-green-dark);
-    --tw-gradient-from: var(--color-secondary-green-mid);
+    --tw-gradient-from: var(--color-secondary-green-dark);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-    --tw-gradient-to: var(--color-secondary-green-dark);
+    --tw-gradient-to: var(--color-secondary-green-mid);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
     color: var(--color-white);
     @media (width >= 48rem) {

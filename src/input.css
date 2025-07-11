@@ -101,7 +101,7 @@ html {
   }
   /* Hero */
   .hero {
-    @apply bg-secondary-green-dark xl:bg-gradient-to-b from-secondary-green-mid to-secondary-green-dark md:from-20% text-white xl:h-dvh flex flex-col;
+    @apply bg-secondary-green-dark xl:bg-gradient-to-b to-secondary-green-mid from-secondary-green-dark md:from-20% text-white xl:h-dvh flex flex-col;
   }
   .hero-logo {
     @apply w-full absolute xl:relative top-5 left-0 px-5 lg:px-0 py-5 lg:max-w-11/12 2xl:max-w-4/5 h-1/12 flex items-end justify-center xl:justify-start mx-auto;
