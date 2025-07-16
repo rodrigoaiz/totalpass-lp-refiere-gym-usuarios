@@ -462,4 +462,93 @@ html {
       @apply bg-black/10 text-gray-800;
     }
   }
+
+  /* Cookie Alert Styles */
+  .cookie-alert {
+    @apply fixed bottom-0 left-0 right-0 z-[999] p-4 m-4 rounded-lg shadow-lg transition-all duration-500 ease-out;
+    background: linear-gradient(135deg, var(--color-primary-green), var(--color-secondary-green-mid));
+    color: white;
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  .cookie-alert.show {
+    transform: translateY(0);
+    opacity: 1;
+    animation: cookieSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .cookie-alert.hide {
+    animation: cookieSlideOut 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .cookie-alert-content {
+    @apply max-w-6xl mx-auto flex flex-col gap-3;
+  }
+
+  .cookie-alert-text {
+    @apply text-sm leading-relaxed;
+    font-family: var(--font-poppins);
+  }
+
+  .cookie-alert-text a {
+    @apply text-white underline hover:no-underline transition-all duration-200;
+  }
+
+  .cookie-alert-actions {
+    @apply flex flex-col gap-2;
+  }
+
+  .cookie-alert-button {
+    @apply px-6 py-2 rounded-md font-medium text-sm transition-all duration-200 cursor-pointer border-none outline-none;
+    font-family: var(--font-poppins);
+  }
+
+  .cookie-alert-accept {
+    @apply bg-white text-black hover:bg-gray-100;
+  }
+
+  .cookie-alert-decline {
+    @apply bg-transparent text-white border border-white hover:bg-white hover:text-black;
+  }
+
+  @media (width >= 48rem) {
+    .cookie-alert {
+      @apply mx-6 mb-6;
+    }
+
+    .cookie-alert-content {
+      @apply flex-row items-center justify-between;
+    }
+
+    .cookie-alert-actions {
+      @apply flex-row gap-3 flex-shrink-0;
+    }
+
+    .cookie-alert-text {
+      @apply text-base flex-1 mr-6;
+    }
+  }
+
+  @keyframes cookieSlideIn {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes cookieSlideOut {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
 }
